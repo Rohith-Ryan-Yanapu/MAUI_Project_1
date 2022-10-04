@@ -4,9 +4,10 @@ namespace Calculator;
 
 public partial class AdvanceCalc : ContentPage
 {
-	public AdvanceCalc()
-	{
-		InitializeComponent();
+
+    public AdvanceCalc()
+    {
+        InitializeComponent();
         OnClear(this, null);
 
     }
@@ -63,7 +64,7 @@ public partial class AdvanceCalc : ContentPage
 
     void OnSelectOperator(object sender, EventArgs e)
     {
-
+        
         LockNumberValue(resultText.Text);
 
         currentState = -2;
@@ -74,7 +75,7 @@ public partial class AdvanceCalc : ContentPage
         mathOperator = pressed;
     }
     public void OnClear(object sender, EventArgs e)
-    {
+	{
         firstNumber = 0;
         secondNumber = 0;
         currentState = 1;
@@ -85,6 +86,22 @@ public partial class AdvanceCalc : ContentPage
         this.equation = "";
         this.displayText = "";
     }
+    void OnMod(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
+        string pressed = button.Text;
+        this.equation += "%";
+        this.displayText += pressed;
+
+    }
+    void OnSqrt(object sender, EventArgs e)
+    {
+        LockNumberValue(resultText.Text);
+        this.equation = Math.Sqrt(Convert.ToDouble(firstNumber)).ToString();
+        this.displayText = $"Sqrt({firstNumber})";
+        currentState = 2;
+        mathOperator = "Sqrt";
+    }
     void OnCalculate(object sender, EventArgs e)
     {
         if (mathOperator != "Sqrt")
@@ -93,6 +110,7 @@ public partial class AdvanceCalc : ContentPage
             System.Diagnostics.Debug.WriteLine(this.equation);
             var v = dt.Compute(this.equation, "");
             this.resultText.Text = v.ToString();
+            this.CurrentCalculation.Text = this.displayText;
         }
         if (currentState == 2)
         {

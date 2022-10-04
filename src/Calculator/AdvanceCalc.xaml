@@ -5,7 +5,7 @@
              Title="AdvanceCalc"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-
+    
     <Grid Padding="16" RowSpacing="2" ColumnSpacing="2"
           RowDefinitions="2*,*,*,*,*,*,*"
           ColumnDefinitions="*,*,*,*"
@@ -35,18 +35,18 @@
         <Button Text="+/-" Grid.Row="1" Grid.Column="1"
                Clicked="OnNegative" />
         <Button Text="(" Grid.Row="1" Grid.Column="2"
-                />
+               Clicked="OnSelectOperator" />
         <Button Text="%" Grid.Row="1" Grid.Column="3"
                Clicked="OnPercentage" />
 
 
         <Button Text="Sqrt" Grid.Row="2" Grid.Column="0"
-                />
+               Clicked="OnSqrt" />
         <Button Text="Mod" Grid.Row="2" Grid.Column="1"
-                />
+               Clicked="OnMod" />
         <Button Text=")" Grid.Row="2" Grid.Column="2"
-                />
-
+               Clicked="OnSelectOperator" />
+        
 
         <Button Text="7" Grid.Row="3" Grid.Column="0"
                Clicked="OnSelectNumber" />
