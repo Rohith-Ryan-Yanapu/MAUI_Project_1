@@ -11,8 +11,7 @@
         <local:EnumPicker ios:Picker.UpdateMode="WhenFinished"
                           EnumType="{x:Type local:Theme}"
                           SelectedIndexChanged="OnPickerSelectionChanged" 
-                          HorizontalOptions="Center" 
-                          Background=""
+                          HorizontalOptions="Center"
                           BackgroundColor="{DynamicResource DropColor}"
                           TextColor="{DynamicResource DropText}"
                           />

@@ -94,7 +94,7 @@ public partial class AdvanceCalc : ContentPage
         this.displayText += pressed;
 
     }
-    void OnSqrt(object sender, EventArgs e)
+    void OnSqroot(object sender, EventArgs e)
     {
         LockNumberValue(resultText.Text);
         this.equation = Math.Sqrt(Convert.ToDouble(firstNumber)).ToString();
@@ -121,6 +121,7 @@ public partial class AdvanceCalc : ContentPage
 
             this.CurrentCalculation.Text = this.displayText;
 
+            this.resultText.Text = this.equation;
 
             firstNumber = result;
             secondNumber = 0;

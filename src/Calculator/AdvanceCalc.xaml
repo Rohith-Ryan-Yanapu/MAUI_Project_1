@@ -41,7 +41,7 @@
 
 
         <Button Text="Sqrt" Grid.Row="2" Grid.Column="0"
-               Clicked="OnSqrt" />
+               Clicked="OnSqroot" />
         <Button Text="Mod" Grid.Row="2" Grid.Column="1"
                Clicked="OnMod" />
         <Button Text=")" Grid.Row="2" Grid.Column="2"
