@@ -15,5 +15,8 @@
         Title="Advanced Calculator"
         ContentTemplate="{DataTemplate local:AdvanceCalc}"
         Route="AdvanceCalc" />
-
+    <ShellContent
+        Title="About"
+        ContentTemplate="{DataTemplate local:About}"
+        Route="About" />
 </Shell>
