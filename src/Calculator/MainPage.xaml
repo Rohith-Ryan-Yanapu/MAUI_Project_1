@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage x:Class="Calculator.MainPage"
             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
     <Grid Padding="16" RowSpacing="2" ColumnSpacing="2"
           RowDefinitions="2*,*,*,*,*,*"
           ColumnDefinitions="*,*,*,*">
@@ -22,13 +22,12 @@
                VerticalTextAlignment="End"
                LineBreakMode="NoWrap" Grid.ColumnSpan="4" />
 
-        <BoxView BackgroundColor="{StaticResource LightGray}" HeightRequest="1"
+        <BoxView BackgroundColor="{StaticResource DarkGray}" HeightRequest="1"
                  Grid.Row="0" VerticalOptions="End"
-                 Grid.ColumnSpan="4"
-                 />
+                 Grid.ColumnSpan="4"/>
 
         <Button Text="C" Grid.Row="1" Grid.Column="0"
-               Clicked="OnClear" />
+               Clicked="OnClear" BackgroundColor="OrangeRed"/>
         <Button Text="+/-" Grid.Row="1" Grid.Column="1"
                Clicked="OnNegative" />
         <Button Text="%" Grid.Row="1" Grid.Column="2"
@@ -62,16 +61,14 @@
         <Button Text="." Grid.Row="5" Grid.Column="2" 
               Clicked="OnSelectNumber" />
 
-        <Button Text="÷" Grid.Row="1" Grid.Column="3"
+        <Button Text="/" Grid.Row="1" Grid.Column="3"
                Clicked="OnSelectOperator" />
-        <Button Text="×" Grid.Row="2" Grid.Column="3"
+        <Button Text="*" Grid.Row="2" Grid.Column="3"
                Clicked="OnSelectOperator" />
         <Button Text="-" Grid.Row="3" Grid.Column="3"
                Clicked="OnSelectOperator" />
         <Button Text="+" Grid.Row="4" Grid.Column="3"
                Clicked="OnSelectOperator" />
-
-
 
         <Button Text="=" Grid.Row="5" Grid.Column="3" 
                Clicked="OnCalculate" />

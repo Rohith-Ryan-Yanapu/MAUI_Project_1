@@ -1,2 +1,4 @@
 # MAUI_Project_1
-Team Project
+Prudhvi Reddy Mali Project
+Jithu Project
+Rohith Yanapu - A499S235
