@@ -1,2 +1,2 @@
 # MAUI_Project_1
-Team Project
+Prudhvi Reddy Mali Project
