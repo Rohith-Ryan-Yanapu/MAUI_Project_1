@@ -22,7 +22,15 @@ public partial class SelectTheme : ContentPage, IModalPage
                 case Theme.Dark:
                     mergedDictionaries.Add(new DarkTheme());
                     break;
-                
+                case Theme.Light:
+                    mergedDictionaries.Add(new LightTheme());
+                    break;
+                case Theme.Green:
+                    mergedDictionaries.Add(new GreenTheme());
+                    break;
+                case Theme.Pink:
+                    mergedDictionaries.Add(new PinkTheme());
+                    break;
                 default:
                     mergedDictionaries.Add(new DarkTheme());
                     break;
