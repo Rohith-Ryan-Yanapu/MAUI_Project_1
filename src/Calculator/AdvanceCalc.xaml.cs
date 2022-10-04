@@ -1,17 +1,15 @@
-﻿using System.Data;
+using System.Data;
 
 namespace Calculator;
 
-public partial class MainPage : ContentPage
+public partial class AdvanceCalc : ContentPage
 {
-
-    public MainPage()
-    {
-        InitializeComponent();
+	public AdvanceCalc()
+	{
+		InitializeComponent();
         OnClear(this, null);
 
     }
-
     string currentEntry = "";
     int currentState = 1;
     string mathOperator;
@@ -20,6 +18,23 @@ public partial class MainPage : ContentPage
     string equation = "";
     string displayText = "";
 
+    private void LockNumberValue(string text)
+    {
+        double number;
+        if (double.TryParse(text, out number))
+        {
+            if (currentState == 1)
+            {
+                firstNumber = number;
+            }
+            else
+            {
+                secondNumber = number;
+            }
+
+            currentEntry = string.Empty;
+        }
+    }
     void OnSelectNumber(object sender, EventArgs e)
     {
 
@@ -48,8 +63,9 @@ public partial class MainPage : ContentPage
 
     void OnSelectOperator(object sender, EventArgs e)
     {
+
         LockNumberValue(resultText.Text);
-        
+
         currentState = -2;
         Button button = (Button)sender;
         string pressed = button.Text;
@@ -57,26 +73,7 @@ public partial class MainPage : ContentPage
         this.displayText += pressed;
         mathOperator = pressed;
     }
-
-    private void LockNumberValue(string text)
-    {
-        double number;
-        if (double.TryParse(text, out number))
-        {
-            if (currentState == 1)
-            {
-                firstNumber = number;
-            }
-            else
-            {
-                secondNumber = number;
-            }
-
-            currentEntry = string.Empty;
-        }
-    }
-
-    void OnClear(object sender, EventArgs e)
+    public void OnClear(object sender, EventArgs e)
     {
         firstNumber = 0;
         secondNumber = 0;
@@ -88,7 +85,6 @@ public partial class MainPage : ContentPage
         this.equation = "";
         this.displayText = "";
     }
-
     void OnCalculate(object sender, EventArgs e)
     {
         if (mathOperator != "Sqrt")
@@ -107,16 +103,13 @@ public partial class MainPage : ContentPage
 
             this.CurrentCalculation.Text = this.displayText;
 
-            
-            firstNumber = result;
 
+            firstNumber = result;
             secondNumber = 0;
             currentState = -1;
             currentEntry = string.Empty;
-            mathOperator = "";
         }
     }
-
     void OnNegative(object sender, EventArgs e)
     {
         if (currentState == 1)
@@ -125,11 +118,13 @@ public partial class MainPage : ContentPage
             mathOperator = "*";
             currentState = 2;
             OnCalculate(this, null);
+            this.equation += "*(-1)";
+            this.displayText += "*(-1)";
         }
     }
-
     void OnPercentage(object sender, EventArgs e)
     {
+
         LockNumberValue(resultText.Text);
         this.equation += "*0.01";
         this.displayText += "%";
